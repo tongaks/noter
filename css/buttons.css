@@ -1,0 +1,9 @@
+.button {
+	padding: 10px;
+	margin: 0px 10px;
+	user-select: none;
+	cursor: pointer;
+}
+
+#add-button { background-color: limegreen; }
+#cancel-button { background-color: red; }

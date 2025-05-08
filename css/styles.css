@@ -1,0 +1,76 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body { position: relative; height: 100vh; }
+
+
+
+
+/*		toolbar start		*/
+
+.toolbar {
+	display: flex;
+	padding: 10px;
+	background-color: skyblue;
+	justify-content: space-evenly;
+}
+
+.control {
+	display: flex;
+}
+
+/*		toolbar end			*/
+
+
+
+
+
+
+
+/*		button start		*/
+
+.button {
+	padding: 10px;
+	margin: 0px 10px;
+	user-select: none;
+	cursor: pointer;
+}
+
+#green-button { background-color: limegreen; }
+
+/*		button end			*/
+
+
+
+
+
+
+/*		main page start		*/
+
+.page-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.book-cover { 
+	padding: 20px; 
+	width: fit-content;
+	background-color: #e9b006;
+	display: flex;
+}
+
+.page {
+	height: 90vh;
+	width: 700px;
+	background-color: whitesmoke;
+	margin: 0px 10px;
+}
+
+
+/*		main page end		*/

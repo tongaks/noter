@@ -1,0 +1,23 @@
+{
+  "name": "noter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    // "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tongaks/noter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tongaks/noter/issues"
+  },
+  "homepage": "https://github.com/tongaks/noter#readme",
+  "devDependencies": {
+    "electron": "^36.1.0"
+  }
+}
