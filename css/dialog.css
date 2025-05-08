@@ -21,3 +21,21 @@
 	width: 400px; height: 400px; 
 	font-size: 1.2rem;
 }
+
+
+/* for addElementDialog */
+.toolbox {
+	position: absolute;
+	background-color: whitesmoke;
+	justify-content: space-between;
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, .5);
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.tool {
+	padding: 10px;
+	cursor: pointer;
+}
+
+.tool:hover { background-color: gray; }

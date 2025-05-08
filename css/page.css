@@ -33,6 +33,7 @@
 	position: relative;
 	width: fit-content;
 	rotate: 0deg;
+	user-select: none;
 }
 
 .rotate-cntrl {

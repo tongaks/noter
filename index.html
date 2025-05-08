@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/right_click.js"></script>
 	<script type="text/javascript" src="js/add_element.js"></script>
 	<script type="text/javascript" src="js/dialog.js"></script>
 	<script type="text/javascript" src="js/element_control.js"></script>
@@ -27,7 +28,7 @@
 
 
 
-<div class="page-container">
+<div class="page-container" oncontextmenu="addElementDialog(event)">
 	<div class="book-cover">
 		<div onclick="pageFocus()" class="page" id="left-page"></div>
 		<div onclick="pageFocus()" class="page" id="right-page"></div>

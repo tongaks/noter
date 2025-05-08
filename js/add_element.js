@@ -3,24 +3,26 @@ let current = null;
 let id_count = 0;
 
 function handleClick(element) {
+	// check if current is another element
+	// if not, set the new current and previous
 	if (current !== element.id) {
 		previous = current;
 		current = element.id;
 		document.getElementById('rotate-' + current).style.display = 'initial';
 		document.getElementById('rotate-' + previous).style.display = 'none';
 	} else {
+		// if the same, just display
 		document.getElementById('rotate-' + current).style.display = 'initial';
 	}
 
-
-	// console.log("current: " + current + "\tprevious: " + previous)
 	addDrag(element);
 }
 
 
 function addTextBox(text_in) {	
 	current = id_count;
-	previous = current;
+	if (current == 0)
+		previous = current;
 
 	let container = document.createElement('div');
 	container.className = 'text-box';
