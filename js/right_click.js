@@ -1,3 +1,5 @@
+document.addEventListener('contextmenu', (e)=>e.preventDefault());
+
 function addElementDialog(event) {
 	let container = document.createElement('div');
 	container.className = 'toolbox'
@@ -16,10 +18,12 @@ function addElementDialog(event) {
 		tool.addEventListener('mousedown', ()=> {
 			console.log('tool selected: ' + tools[i])
 			if (i == 0) addTextBoxDialog();
+			if (i == 1)  drawRectShape();
 		});
 
 		container.appendChild(tool);
 	}
 
 	document.body.appendChild(container);
+	console.log('done');
 }

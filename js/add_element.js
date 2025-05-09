@@ -8,10 +8,14 @@ function handleClick(element) {
 	if (current !== element.id) {
 		previous = current;
 		current = element.id;
-		document.getElementById('rotate-' + current).style.display = 'initial';
-		document.getElementById('rotate-' + previous).style.display = 'none';
+		const rotateElem = document.getElementById('rotate-' + current);
+		if (rotateElem && rotateElem.style.display == null) {
+			console.log('rotate is null');
+			console.log(rotateElem.style.display);
+		}
+		// document.getElementById('rotate-' + current).style.display = 'initial';
+		// document.getElementById('rotate-' + previous).style.display = 'none';
 	} else {
-		// if the same, just display
 		document.getElementById('rotate-' + current).style.display = 'initial';
 	}
 
