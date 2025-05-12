@@ -1,33 +1,38 @@
 function drawRectShape() {
 	let rect = document.createElement('div');
-	rect.style.background = 'red';
-	rect.style.position = 'absolute';
-	rect.style.width = '10px';
-	rect.style.height = '10px';
+	rect.className = 'rectangle-style'
+
+	let container = document.createElement('div');
+	container.className = 'text-box';
+	container.addEventListener('contextmenu', (e)=>showEditElementMenu(rect, e));
+	// container.id = id_count;
+	// current = id_count;
+	// id_count++;
+
+	let rotate_cntrl = document.createElement('div');
+	rotate_cntrl.className = 'rotate-cntrl';
+	// rotate_cntrl.id = 'rotate-' + id_count;
+	rotate_cntrl.addEventListener('click', ()=> {
+		addRotate(container);
+	});
 
 	function onClick(event) {
-		console.log('click draw shape');
 
-		console.log("x: " + (event.pageX - 10));
-		console.log("y: " + (event.pageY - 10));
+		container.style.left = event.pageX + 'px';
+		container.style.top = (event.pageY - 60) + 'px';
 
-		rect.style.left = (event.pageX - 10) + 'px';
-		rect.style.top = (event.pageY - 10) + 'px';		
+		container.appendChild(rect);
+		container.appendChild(rotate_cntrl);
+		document.body.appendChild(container);
 
-		document.body.appendChild(rect);
-
-		document.addEventListener('mousedown', drawRect);
 		document.removeEventListener('click', onClick);
+		document.addEventListener('mousedown', drawRect);
 	}
 
-	function drawRect(event) {
+	function drawRect() {
 		function draw(e) {
-			console.log("x: " + rect.style.left);
-			console.log("y: " + rect.style.top);
-
 			let x = parseInt(window.getComputedStyle(rect).width);
 			let y = parseInt(window.getComputedStyle(rect).height);
-
 	        rect.style.width = (x + e.movementX) + 'px';
 	        rect.style.height = (y + e.movementY) + 'px';
 		}
@@ -35,7 +40,6 @@ function drawRectShape() {
 		function onMouseUp() {
 			document.removeEventListener('mousemove', draw);
 			document.removeEventListener('mousedown', drawRect);
-			// element.removeEventListener('mousedown', drawRect);
 		}
 
 		document.addEventListener('mousemove', draw);

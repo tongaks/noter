@@ -7,6 +7,7 @@ function drawRectShape() {
 	container.id = id_count;
 	current = id_count;
 	id_count++;
+	rect.addEventListener('contextmenu', (e)=>showEditElementMenu(rect, e));
 
 	let rotate_cntrl = document.createElement('div');
 	rotate_cntrl.className = 'rotate-cntrl';
