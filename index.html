@@ -20,7 +20,7 @@
 	<h2>Noter</h2>
 
 	<div class="controls">
-		<div class="button" id="add-button" onclick="addTextBoxDialog()">Add text</div>
+		<div class="button" id="add-button" onclick="addTextBoxDialog(event)">Add text</div>
 		<div class="button" id="add-button">Add image</div>
 	</div>
 </div>
@@ -29,13 +29,8 @@
 
 
 
-<div class="page-container" oncontextmenu="addElementDialog(event)">
-	<div class="book-cover">
-		<div onclick="pageFocus()" class="page" id="left-page"></div>
-		<div onclick="pageFocus()" class="page" id="right-page"></div>
-	</div>
+<div id="page-container" class="page-container" oncontextmenu="addElementDialog(event)">
 </div>
-
 
 
 

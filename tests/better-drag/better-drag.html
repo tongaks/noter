@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body { height:100h; position:relative; }
+	.rect {padding: 100px; background: red; position: absolute;}
+	#rect2 { top: 50%; left: 40% }
+
+</style>
+<body>
+
+<div class="rect" id="rect1" onclick="onFocus(this)"></div>
+<div class="rect" id="rect2" onclick="onFocus(this)"></div>
+
+<script type="text/javascript" src="better-drag.js"></script>
+</body>
+</html>

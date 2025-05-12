@@ -1,0 +1,16 @@
+.book-container {
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: gray;
+}
+
+#left {
+/*	width: 100px;*/
+	rotate: 180deg;
+	margin-right: 10px;
+	margin-top: 10px;
+}

@@ -32,7 +32,7 @@ function addTextBoxDialog() {
 			return;
 		}
 
-		addTextBox(textarea.value);
+		addTextBox(textarea.value, event);
 		container.remove();
 	};
 	

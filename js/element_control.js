@@ -31,19 +31,12 @@ function addRotate(element) {
 }
 
 
-
-// add move handler to an element
+// add hold-click + move event to an element
 function addDrag(element) {
-	current_mode = 'move';
-
 	function handleMove() {
+		element.style.cursor = 'move';
+
 	    function onMouseMove(event) {
-
-	    	// return if the current mode is rotate
-	    	if (current_mode == 'rotate') {
-	    		return;
-	    	}
-
 	        let x = parseInt(window.getComputedStyle(element).left);
 	        let y = parseInt(window.getComputedStyle(element).top);
 	        element.style.left = (x + event.movementX) + 'px';
@@ -52,8 +45,8 @@ function addDrag(element) {
 
 	    function onMouseUp() {
 	        document.removeEventListener('mousemove', onMouseMove);
-	        document.removeEventListener('mousedown', handleMove);
 			element.removeEventListener('mousedown', handleMove);
+			element.style.cursor = 'default';
 	    }
 
 	    document.addEventListener('mousemove', onMouseMove);
@@ -61,5 +54,4 @@ function addDrag(element) {
 	}
 
 	element.addEventListener('mousedown', handleMove);
-	console.log(current_mode);
 }
