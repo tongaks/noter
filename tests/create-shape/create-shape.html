@@ -46,7 +46,12 @@
 
 	.edit-element-menu * { margin: 2px; }
 
-	.edit-color { display: flex; }
+	.edit-color { 
+		display: flex; 
+		text-align:center; 
+		align-items: center;
+	}
+
 	.edit-border { display: flex; }
 
 	.border-button {
@@ -91,6 +96,15 @@
 <div class="edit-element-menu">
 	<h2>Edit</h2>
 	<div class="edit-color">
+		<h3>BG color: </h3>
+		<input id="color-table" type="color" placeholder="Color">		
+		<div id="red-color"	class="preset-color"></div>
+		<div id="blue-color" class="preset-color"></div>
+		<div id="green-color" class="preset-color"></div>
+	</div>
+
+	<div class="edit-color">
+		<h3>Font color: </h3>
 		<input id="color-table" type="color" placeholder="Color">		
 		<div id="red-color"	class="preset-color"></div>
 		<div id="blue-color" class="preset-color"></div>

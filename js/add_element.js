@@ -34,6 +34,7 @@ function addTextBox(text_in, event) {
 	let container = document.createElement('div');
 	container.className = 'text-box';
 	container.id = id_count;
+	container.addEventListener('contextmenu', (e)=>showEditElementMenu(container, e));
 
 	let text = document.createElement('h1');
 	text.className = 'text';

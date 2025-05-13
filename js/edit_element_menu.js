@@ -1,10 +1,7 @@
 function showEditElementMenu(element, event) {
 	event.preventDefault();
 
-	let edit_menus = document.getElementsByClassName('edit-element-menu'); 
-	for (let i = 0; i < edit_menus.length; i++) {
-		edit_menus[i].remove();
-	}
+	document.querySelector(".edit-element-menu")?.remove();
 
 	const editElementMenu = document.createElement("div");
 	editElementMenu.className = "edit-element-menu";
@@ -13,48 +10,79 @@ function showEditElementMenu(element, event) {
 	heading.textContent = "Edit";
 	editElementMenu.appendChild(heading);
 
-	// ----- Color Section -----
-	const colorsDiv = document.createElement("div");
-	colorsDiv.className = "edit-color";
+	// --- Background Color Section ---
+	const bgColorDiv = document.createElement("div");
+	bgColorDiv.className = "edit-color";
 
-	const colorInput = document.createElement("input");
-	colorInput.id = "color-table";
-	colorInput.type = "color";
-	colorInput.oninput = () => {
-		element.style.background = colorInput.value;
+	const bgLabel = document.createElement("h3");
+	bgLabel.textContent = "BG color:";
+	bgColorDiv.appendChild(bgLabel);
+
+	const bgColorInput = document.createElement("input");
+	bgColorInput.type = "color";
+	bgColorInput.placeholder = "Color";
+	bgColorInput.oninput = () => {
+		element.style.background = bgColorInput.value;
 	};
 
-	const redColor = document.createElement("div");
-	redColor.id = "red-color";
-	redColor.className = "preset-color";
-	redColor.style.background = "red";
-	redColor.onclick = () => {
-		element.style.background = "red";
+	const redBg = document.createElement("div");
+	redBg.className = "preset-color";
+	redBg.style.background = "red";
+	redBg.onclick = () => element.style.background = "red";
+
+	const blueBg = document.createElement("div");
+	blueBg.className = "preset-color";
+	blueBg.style.background = "blue";
+	blueBg.onclick = () => element.style.background = "blue";
+
+	const greenBg = document.createElement("div");
+	greenBg.className = "preset-color";
+	greenBg.style.background = "green";
+	greenBg.onclick = () => element.style.background = "green";
+
+	bgColorDiv.appendChild(bgColorInput);
+	bgColorDiv.appendChild(redBg);
+	bgColorDiv.appendChild(blueBg);
+	bgColorDiv.appendChild(greenBg);
+	editElementMenu.appendChild(bgColorDiv);
+
+	// --- Font Color Section ---
+	const fontColorDiv = document.createElement("div");
+	fontColorDiv.className = "edit-color";
+
+	const fontLabel = document.createElement("h3");
+	fontLabel.textContent = "Font color:";
+	fontColorDiv.appendChild(fontLabel);
+
+	const fontColorInput = document.createElement("input");
+	fontColorInput.type = "color";
+	fontColorInput.placeholder = "Color";
+	fontColorInput.oninput = () => {
+		element.style.color = fontColorInput.value;
 	};
 
-	const blueColor = document.createElement("div");
-	blueColor.id = "blue-color";
-	blueColor.className = "preset-color";
-	blueColor.style.background = "blue";
-	blueColor.onclick = () => {
-		element.style.background = "blue";
-	};
+	const redFont = document.createElement("div");
+	redFont.className = "preset-color";
+	redFont.style.background = "red";
+	redFont.onclick = () => element.style.color = "red";
 
-	const greenColor = document.createElement("div");
-	greenColor.id = "green-color";
-	greenColor.className = "preset-color";
-	greenColor.style.background = "green";
-	greenColor.onclick = () => {
-		element.style.background = "green";
-	};
+	const blueFont = document.createElement("div");
+	blueFont.className = "preset-color";
+	blueFont.style.background = "blue";
+	blueFont.onclick = () => element.style.color = "blue";
 
-	colorsDiv.appendChild(colorInput);
-	colorsDiv.appendChild(redColor);
-	colorsDiv.appendChild(blueColor);
-	colorsDiv.appendChild(greenColor);
-	editElementMenu.appendChild(colorsDiv);
+	const greenFont = document.createElement("div");
+	greenFont.className = "preset-color";
+	greenFont.style.background = "green";
+	greenFont.onclick = () => element.style.color = "green";
 
-	// ----- Border Section -----
+	fontColorDiv.appendChild(fontColorInput);
+	fontColorDiv.appendChild(redFont);
+	fontColorDiv.appendChild(blueFont);
+	fontColorDiv.appendChild(greenFont);
+	editElementMenu.appendChild(fontColorDiv);
+
+	// --- Border Radius Section ---
 	const borderDiv = document.createElement("div");
 	borderDiv.className = "edit-border";
 
@@ -62,14 +90,14 @@ function showEditElementMenu(element, event) {
 	borderRadiusInput.id = "border-radius";
 	borderRadiusInput.type = "number";
 	borderRadiusInput.placeholder = "Border radius by px";
-	borderRadiusInput.oninput = () => {
-		const isPercent = borderUnit === "percent";
-		const value = borderRadiusInput.value;
-		element.style.borderRadius = isPercent ? value + "%" : value + "px";
-		borderRadiusInput.placeholder = "Border radius by " + (isPercent?"%":"px");
-	};
 
 	let borderUnit = "px";
+
+	borderRadiusInput.oninput = () => {
+		const val = borderRadiusInput.value;
+		element.style.borderRadius = borderUnit === "percent" ? val + "%" : val + "px";
+		borderRadiusInput.placeholder = `Border radius by ${borderUnit === "percent" ? "%" : "px"}`;
+	};
 
 	const pixelBtn = document.createElement("div");
 	pixelBtn.className = "border-button";
@@ -82,7 +110,7 @@ function showEditElementMenu(element, event) {
 
 	const percentBtn = document.createElement("div");
 	percentBtn.className = "border-button";
-	percentBtn.id = "border-percent";
+	percentBtn.id = "border-perc";
 	percentBtn.textContent = "Percentage";
 	percentBtn.onclick = () => {
 		borderUnit = "percent";
@@ -94,7 +122,7 @@ function showEditElementMenu(element, event) {
 	borderDiv.appendChild(percentBtn);
 	editElementMenu.appendChild(borderDiv);
 
-	// ----- Position & Attach Menu -----
+	// --- Position Menu Next to Element ---
 	const rect = element.getBoundingClientRect();
 	editElementMenu.style.position = "absolute";
 	editElementMenu.style.top = (rect.top + window.scrollY) + "px";
