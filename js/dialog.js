@@ -1,4 +1,16 @@
 function addTextBoxDialog() {
+	function handleText() {
+		if (textarea.value == '') {
+			alert('Text is empty');
+			container.remove();
+			return;
+		}
+
+		addTextBox(textarea.value, event);
+		container.remove();		
+	}
+
+
 	let container = document.createElement('div');
 	container.className = 'dialog';
 	container.id = 'add-text-dialog';
@@ -8,6 +20,9 @@ function addTextBoxDialog() {
 
 	let textarea = document.createElement('textarea');
 	textarea.placeholder = 'Enter the text here';
+	textarea.addEventListener('keydown', (e)=> {
+		if (e.keyCode == 13) handleText();
+	});
 
 	let controls = document.createElement('div');
 	controls.className = 'controls';
@@ -25,16 +40,7 @@ function addTextBoxDialog() {
 	add_button.innerHTML = 'Add text';
 	cancel_button.innerHTML = 'Cancel';
 
-	add_button.onclick = () => {
-		if (textarea.value == '') {
-			alert('Text is empty');
-			container.remove();
-			return;
-		}
-
-		addTextBox(textarea.value, event);
-		container.remove();
-	};
+	add_button.onclick = ()=>handleText();
 	
 	cancel_button.onclick = () => {container.remove()};
 
