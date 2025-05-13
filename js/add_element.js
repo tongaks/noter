@@ -3,38 +3,31 @@ let current = null;
 let id_count = 0;
 
 function handleClick(element) {
-	// check if current is another element
-	// if not, set the new current and previous
+	current = element;
 
-	if (current !== element.id) {
-		previous = current;
-		current = element.id;
-		const rotateElem = document.getElementById('rotate-' + current);
-		if (rotateElem && rotateElem.style.display == null) {
-			console.log('rotate is null');
-			console.log(rotateElem.style.display);
-		}
-	} else {
-		console.log("current: " + current);	
-		document.getElementById('rotate-' + current).style.display = 'initial';
+	let rotate_cntrls = document.querySelectorAll('.rotate-cntrl');
+	for (let i = 0; i < rotate_cntrls.length; i++) {
+		if (element.children[1] == rotate_cntrls[i]) continue;
+		rotate_cntrls[i].style.display = 'none';
+	}
+
+	let rotate_stat = window.getComputedStyle(element.children[1]).display;
+	if (rotate_stat == 'none') {
+		element.children[1].style.display = 'initial';
 	}
 
 	addDrag(element);
 }
 
 
-// function addTextBox(text_in, posX, posY) {	
 function addTextBox(text_in, event) {	
 	let parent = document.getElementById('page-container');
-
-	current = id_count;
-	if (current == 0)
-		previous = current;
 
 	let container = document.createElement('div');
 	container.className = 'text-box';
 	container.id = id_count;
 	container.addEventListener('contextmenu', (e)=>showEditElementMenu(container, e));
+	current = container;
 
 	let text = document.createElement('h1');
 	text.className = 'text';

@@ -1,9 +1,11 @@
 function drawRectShape() {
 	let rect = document.createElement('div');
 	rect.className = 'rectangle-style'
+	rect.addEventListener('click', ()=>handleClick(container));
 
 	let container = document.createElement('div');
 	container.className = 'text-box';
+	current = container;
 	container.id = id_count;
 	current = id_count;
 	id_count++;
