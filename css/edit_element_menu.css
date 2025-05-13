@@ -1,5 +1,6 @@
 .edit-element-menu {
 	position: absolute;
+	user-select: none;
 
 	display: flex;
 	flex-direction: column;

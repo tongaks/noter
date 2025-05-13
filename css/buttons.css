@@ -7,3 +7,8 @@
 
 #add-button { background-color: limegreen; }
 #cancel-button { background-color: red; }
+
+#normal-button { 
+	background-color: cyan; 
+	border-radius:10px; 
+}

@@ -1,6 +1,11 @@
 function showEditElementMenu(element, event) {
 	event.preventDefault();
 
+	let edit_menus = document.getElementsByClassName('edit-element-menu'); 
+	for (let i = 0; i < edit_menus.length; i++) {
+		edit_menus[i].remove();
+	}
+
 	const editElementMenu = document.createElement("div");
 	editElementMenu.className = "edit-element-menu";
 

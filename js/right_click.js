@@ -6,8 +6,8 @@ function addElementDialog(event) {
 	container.style.left = event.pageX + 'px';
 	container.style.top = (event.pageY - 50) + 'px';
 
-	function handleSelectTool() { container.remove(); }
-	document.addEventListener('mouseup', handleSelectTool);
+	function removeSelectElementTool() { container.remove(); }
+	document.addEventListener('mouseup', removeSelectElementTool);
 
 	const tools = ['Text', 'Shape', 'Image'];
 	for (let i = 0; i < tools.length; i++) {
