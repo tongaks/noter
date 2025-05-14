@@ -36,8 +36,8 @@ function drawRectShape() {
 			let x = parseInt(window.getComputedStyle(rect).width);
 			let y = parseInt(window.getComputedStyle(rect).height);
 
-	        rect.style.width = (x + e.movementX) + 'px';
-	        rect.style.height = (y + e.movementY) + 'px';
+	        // rect.style.width = (x + e.movementX) + 'px';
+	        // rect.style.height = (y + e.movementY) + 'px';
 
 	        container.style.width = (x + e.movementX) + 'px';
 	        container.style.height = (y + e.movementY) + 'px';

@@ -13,25 +13,29 @@
 /* 	add_element styles  */
 .text {
 	padding: 7px;
-	position: relative;
 	border: 2px solid black;
 }
 
 .text-box {
 	position: absolute;
-	height: fit-content;
-	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: auto;
+	height: auto;
+
 	rotate: 0deg;
 	user-select: none;
 }
 
 .rotate-cntrl {
-	position: absolute;
-	left: 50%; transform: translateX(-50%);
-
 	padding: 10px;
 	border-radius: 50%;
 	background-color: black;
+
+	position: absolute;
 
 	cursor: move;
 	display: none;
@@ -39,7 +43,5 @@
 
 .rectangle-style {
 	background-color: red;
-	position: absolute;
-	width: 10px;
-	height: 10px;
+	width: 100%; height: 100%;
 }

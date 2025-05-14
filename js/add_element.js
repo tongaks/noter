@@ -13,6 +13,10 @@ function handleClick(element) {
 
 	let rotate_stat = window.getComputedStyle(element.children[1]).display;
 	if (rotate_stat == 'none') {
+		let top = parseInt(window.getComputedStyle(element).height) + 10;
+		console.log('top: ' + top);
+
+		element.children[1].style.top = top + 'px';
 		element.children[1].style.display = 'initial';
 	}
 
