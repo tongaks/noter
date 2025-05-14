@@ -9,6 +9,7 @@ function handleClick(element) {
 	for (let i = 0; i < rotate_cntrls.length; i++) {
 		if (element.children[1] == rotate_cntrls[i]) continue;
 		rotate_cntrls[i].style.display = 'none';
+		rotate_cntrls[i].parentElement.style.borderColor = 'transparent';
 	}
 
 	let rotate_stat = window.getComputedStyle(element.children[1]).display;
@@ -18,6 +19,7 @@ function handleClick(element) {
 
 		element.children[1].style.top = top + 'px';
 		element.children[1].style.display = 'initial';
+		element.style.borderColor = 'black'
 	}
 
 	addDrag(element);
@@ -30,6 +32,11 @@ function addTextBox(text_in, event) {
 	let container = document.createElement('div');
 	container.className = 'text-box';
 	container.id = id_count;
+
+	container.addEventListener('click', (e)=> {
+		container.style.border = '2px solid black';
+	});
+
 	container.addEventListener('contextmenu', (e)=>showEditElementMenu(container, e));
 	current = container;
 

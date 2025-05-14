@@ -6,10 +6,8 @@ function drawRectShape() {
 	let container = document.createElement('div');
 	container.className = 'text-box';
 	current = container;
-	container.id = id_count;
-	current = id_count;
-	id_count++;
-	rect.addEventListener('contextmenu', (e)=>showEditElementMenu(rect, e));
+
+	container.addEventListener('contextmenu', (e)=>showEditElementMenu(rect, e));
 
 	let rotate_cntrl = document.createElement('div');
 	rotate_cntrl.className = 'rotate-cntrl';
@@ -28,6 +26,11 @@ function drawRectShape() {
 		document.getElementById('page-container').appendChild(container);
 
 		document.removeEventListener('click', onClick);
+
+		// container.addEventListener('click', (e)=> {
+		// 	container.style.border = '2px solid black';
+		// });
+
 		document.addEventListener('mousedown', drawRect);
 	}
 
@@ -36,14 +39,15 @@ function drawRectShape() {
 			let x = parseInt(window.getComputedStyle(rect).width);
 			let y = parseInt(window.getComputedStyle(rect).height);
 
-	        // rect.style.width = (x + e.movementX) + 'px';
-	        // rect.style.height = (y + e.movementY) + 'px';
-
 	        container.style.width = (x + e.movementX) + 'px';
 	        container.style.height = (y + e.movementY) + 'px';
 		}
 
 		function onMouseUp() {
+			container.addEventListener('click', (e)=> {
+				container.style.border = '2px solid black';
+			});
+
 			document.removeEventListener('mousemove', draw);
 			document.removeEventListener('mousedown', drawRect);
 		}
