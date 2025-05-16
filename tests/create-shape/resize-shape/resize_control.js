@@ -1,7 +1,7 @@
 function resizeDrag(direction) {
     let container = document.getElementById('container');
 
-    function draw(e) {
+    function resize(e) {
         let containerStyles = window.getComputedStyle(container);
         let height = parseInt(containerStyles.height);
         let width = parseInt(containerStyles.width);
@@ -27,45 +27,12 @@ function resizeDrag(direction) {
     }
 
     function onMouseUp() {
-        document.removeEventListener('mousemove', draw);
+        document.removeEventListener('mousemove', resize);
         document.removeEventListener('mouseup', onMouseUp);
     }
 
-    document.addEventListener('mousemove', draw);
+    document.addEventListener('mousemove', resize);
     document.addEventListener('mouseup', onMouseUp);
-}
-
-
-function topDrag(element) {
-	let container = document.getElementById('container');
-
-	function draw(e) {
-		let container_height = parseInt(window.getComputedStyle(container).height);
-		let container_top = parseInt(window.getComputedStyle(container).top);
-
-        container.style.height = (container_height - e.movementY) + 'px';
-        container.style.top = (container_top + e.movementY) + 'px';
-	}
-
-	function onMouseUp() {
-		document.removeEventListener('mousemove', draw);
-		// document.removeEventListener('mousedown', topDrag);
-	}
-
-	document.addEventListener('mousemove', draw);
-	document.addEventListener('mouseup', onMouseUp);
-}
-
-function bottomDrag() {
-	console.log('bottom');
-}
-
-function leftDrag() {
-	console.log('left');
-}
-
-function rightDrag() {
-	console.log('right');
 }
 
 let center = document.getElementById('center');
@@ -73,13 +40,22 @@ console.log(center.parentElement.className);
 center.addEventListener('mousedown', ()=>addDrag(center.parentElement));
 
 let top_control = document.getElementById('top-drag');
-top_control.addEventListener('mousedown', ()=>resizeDrag('top'));
+top_control.addEventListener('mousedown', (e)=> {
+    resizeDrag('top');
+});
 
 let bottom_control = document.getElementById('bottom-drag');
 bottom_control.addEventListener('mousedown', ()=>resizeDrag('bottom'));
 
 let left_control = document.getElementById('left-drag');
-left_control.addEventListener('mousedown', ()=>resizeDrag('left'));
+left_control.addEventListener('mousedown', (e)=> {
+    e.stopPropagation();
+    resizeDrag('left');
+});
+
 
 let right_control = document.getElementById('right-drag');
-right_control.addEventListener('mousedown', ()=>resizeDrag('right'));
+right_control.addEventListener('mousedown', (e)=> {
+    e.stopPropagation();
+    resizeDrag('right');
+});
