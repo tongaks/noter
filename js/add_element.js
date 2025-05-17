@@ -23,15 +23,35 @@ function handleClick(element) {
 		element.style.borderColor = 'black'
 	}
 
-	element.addEventListener('keydown', (e)=> {
-		console.log(e.keyCode);
-		element.focus();
-		if (e.key === 'Backspace') element.remove();
-	});
-
+	element.focus();
+	keyEvent(element);
 	addDrag(element);
 }
 
+function keyEvent(element) {
+	function handleKeyDown(e) {
+		if (e.repeat) return;
+		if (e.key === 'Backspace') {
+			element.remove();
+		} else if (e.ctrlKey && e.keyCode == 219) {
+			let z_index = parseInt(window.getComputedStyle(element).zIndex);
+			element.style.zIndex = z_index + 1;
+			console.log('z_index: ' + element.style.zIndex);
+		} else if (e.ctrlKey && e.keyCode == 221) {
+			let z_index = parseInt(window.getComputedStyle(element).zIndex);
+			if (z_index > 1)
+				element.style.zIndex = z_index - 1;
+			console.log('z_index: ' + element.style.zIndex);
+		}
+	}
+
+	// function handleKeyUp(e) {
+
+	// }
+
+	element.addEventListener('keydown', handleKeyDown);
+	// element.addEventListener('keyup', handleKeyUp);
+}
 
 function addTextBox(text_in, event) {	
 	let parent = document.getElementById('page-container');
