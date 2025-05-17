@@ -32,6 +32,7 @@
 .rotate-cntrl {
 	padding: 10px;
 	border-radius: 50%;
+	height: fit-content;
 	background-color: black;
 
 	position: absolute;
