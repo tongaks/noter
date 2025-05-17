@@ -4,21 +4,28 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="shapes_style2.css">
-	<script type="text/javascript" src="../../../js/element_control.js"></script>
 	<title>Test shape</title>
 </head>
 <body>
 
-<div class="container" id="container">
-	<div class="top-drag" id="top-drag"></div>
-	<div class="center" id="center">
-		<div class="left-drag" id="left-drag"></div>
-		<div class="rectangle-style"></div>
-		<div class="right-drag" id="right-drag"></div>
-	</div>
-	<div class="bottom-drag" id="bottom-drag"></div>
+
+<div class="container" id="shape-box">
+	<div class="rectangle-style"></div>	
 </div>
 
-<script type="text/javascript" src="drag_controls.js"></script>
+
+
+<script type="text/javascript" src="resize_control.js"></script>
+<script type="text/javascript" src="resize-hover/resize_hover.js"></script>
+<script type="text/javascript" src="../../../js/element_control.js"></script>
+
+<!-- main -->
+<script type="text/javascript">
+	let container = document.getElementById('shape-box');
+	// resizeHover(container);
+	container.addEventListener('mousedown', ()=>addDrag(container));
+	container.addEventListener('mouseenter', ()=>resizeHover(container));
+</script>
+
 </body>
 </html>

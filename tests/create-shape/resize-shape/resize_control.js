@@ -1,27 +1,26 @@
-function resizeDrag(direction) {
-    let container = document.getElementById('container');
-
+function resizeDrag(element, direction) {
     function resize(e) {
-        let containerStyles = window.getComputedStyle(container);
-        let height = parseInt(containerStyles.height);
-        let width = parseInt(containerStyles.width);
-        let top = parseInt(containerStyles.top);
-        let left = parseInt(containerStyles.left);
+        let elementStyles = window.getComputedStyle(element);
+        let height = parseInt(elementStyles.height);
+        let width = parseInt(elementStyles.width);
+        let top = parseInt(elementStyles.top);
+        let left = parseInt(elementStyles.left);
 
         switch (direction) {
             case 'top':
-                container.style.height = (height - e.movementY) + 'px';
-                container.style.top = (top + e.movementY) + 'px';
+                element.style.top = (top + e.movementY) + 'px';
+                element.style.height = (height - e.movementY) + 'px';
                 break;
             case 'bottom':
-                container.style.height = (height + e.movementY) + 'px';
+                element.style.height = (height + e.movementY) + 'px';
+                element.style.top = top + 'px';
                 break;
             case 'left':
-                container.style.width = (width - e.movementX) + 'px';
-                container.style.left = (left + e.movementX) + 'px';
+                element.style.width = (width - e.movementX) + 'px';
+                element.style.left = (left + e.movementX) + 'px';
                 break;
             case 'right':
-                container.style.width = (width + e.movementX) + 'px';
+                element.style.width = (width + e.movementX) + 'px';
                 break;
         }
     }
@@ -35,27 +34,37 @@ function resizeDrag(direction) {
     document.addEventListener('mouseup', onMouseUp);
 }
 
-let center = document.getElementById('center');
-console.log(center.parentElement.className);
-center.addEventListener('mousedown', ()=>addDrag(center.parentElement));
-
-let top_control = document.getElementById('top-drag');
-top_control.addEventListener('mousedown', (e)=> {
-    resizeDrag('top');
-});
-
-let bottom_control = document.getElementById('bottom-drag');
-bottom_control.addEventListener('mousedown', ()=>resizeDrag('bottom'));
-
-let left_control = document.getElementById('left-drag');
-left_control.addEventListener('mousedown', (e)=> {
-    e.stopPropagation();
-    resizeDrag('left');
-});
 
 
-let right_control = document.getElementById('right-drag');
-right_control.addEventListener('mousedown', (e)=> {
-    e.stopPropagation();
-    resizeDrag('right');
-});
+
+
+
+
+
+
+
+
+// let center = document.getElementById('center');
+// console.log(center.parentElement.className);
+// center.addEventListener('mousedown', ()=>addDrag(center.parentElement));
+
+// let top_control = document.getElementById('top-drag');
+// top_control.addEventListener('mousedown', (e)=> {
+//     resizeDrag('top');
+// });
+
+// let bottom_control = document.getElementById('bottom-drag');
+// bottom_control.addEventListener('mousedown', ()=>resizeDrag('bottom'));
+
+// let left_control = document.getElementById('left-drag');
+// left_control.addEventListener('mousedown', (e)=> {
+//     e.stopPropagation();
+//     resizeDrag('left');
+// });
+
+
+// let right_control = document.getElementById('right-drag');
+// right_control.addEventListener('mousedown', (e)=> {
+//     e.stopPropagation();
+//     resizeDrag('right');
+// });

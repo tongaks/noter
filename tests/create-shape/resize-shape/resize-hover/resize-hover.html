@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style type="text/css">
+	* {
+		padding: 0;
+		margin: 0;
+	}
+
+	body {
+		position: relative;
+		height: 100vh;
+		background-color: gray;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.rectangle {
+		background-color: red;
+		position: absolute;
+		width: 100px; height: 100px;
+		cursor: move;
+	}
+</style>
+<body>
+
+<div class="rectangle" id="rect"></div>
+
+<script type="text/javascript" src="../../../../js/resize_control.js"></script>
+<script type="text/javascript" src="resize_hover.js"></script>
+</body>
+</html>
