@@ -38,6 +38,8 @@ function addTextBox(text_in, event) {
 	});
 
 	container.addEventListener('contextmenu', (e)=>showEditElementMenu(container, e));
+	container.addEventListener('mouseenter', (e)=>resizeHover(container));
+
 	current = container;
 
 	let text = document.createElement('h1');
