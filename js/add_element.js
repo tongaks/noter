@@ -16,8 +16,6 @@ function handleClick(element) {
 	let rotate_stat = window.getComputedStyle(element.children[1]).display;
 	if (rotate_stat == 'none') {
 		let top = parseInt(window.getComputedStyle(element).height) + 10;
-		console.log('top: ' + top);
-
 		element.children[1].style.top = top + 'px';
 		element.children[1].style.display = 'initial';
 		element.style.borderColor = 'black'
@@ -29,28 +27,32 @@ function handleClick(element) {
 }
 
 function keyEvent(element) {
+	let isPressed = false;
+
 	function handleKeyDown(e) {
-		if (e.repeat) return;
 		if (e.key === 'Backspace') {
 			element.remove();
+			return;
 		} else if (e.ctrlKey && e.keyCode == 219) {
 			let z_index = parseInt(window.getComputedStyle(element).zIndex);
 			element.style.zIndex = z_index + 1;
 			console.log('z_index: ' + element.style.zIndex);
+			return;
 		} else if (e.ctrlKey && e.keyCode == 221) {
 			let z_index = parseInt(window.getComputedStyle(element).zIndex);
 			if (z_index > 1)
 				element.style.zIndex = z_index - 1;
 			console.log('z_index: ' + element.style.zIndex);
+			return;
 		}
 	}
 
-	// function handleKeyUp(e) {
-
-	// }
+	function handleKeyUp(e) {
+		isPressed = false;
+	}
 
 	element.addEventListener('keydown', handleKeyDown);
-	// element.addEventListener('keyup', handleKeyUp);
+	element.addEventListener('keyup', handleKeyUp);
 }
 
 function addTextBox(text_in, event) {	

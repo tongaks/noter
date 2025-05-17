@@ -39,7 +39,6 @@ function addDrag(element) {
 
 	    function onMouseMove(event) {
 	    	if (current_mode !== 'move') return;
-	    	console.log('moving');
 
 	        let x = parseInt(window.getComputedStyle(element).left);
 	        let y = parseInt(window.getComputedStyle(element).top);
