@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	position: relative;
+	height: 100vh;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	background-color: limegreen;
+	padding: 2px;
+}
+
+.rect {
+	position: absolute;
+	width: 100px; height: 100px;
+	background-color: red;
+}
