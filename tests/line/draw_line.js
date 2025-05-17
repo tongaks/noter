@@ -1,49 +1,3 @@
-let rect_count = 0;
-
-function restart() {
-	let rects = document.getElementsByClassName('rect');
-	document.getElementById('line').remove();
-	for (let i = 0; i < rects.length; i++) {
-		rects[i].remove();
-	}
-
-	rect_count = 0;
-}
-
-function callDrawLine() {
-	let rect1 = document.getElementById('0');
-	let rect2 = document.getElementById('1');
-	drawLine(rect1, rect2);
-}
-
-function createRectStatic(x_pos, y_pos) {
-	// let x_pos = document.getElementById('x-pos').value;
-	// let y_pos = document.getElementById('y-pos').value;
-
-	let rect = document.createElement('div');
-	rect.id = rect_count;
-	rect.className = 'rect';
-	rect.style.top = y_pos + 'px';
-	rect.style.left = x_pos + 'px';
-
-	document.body.appendChild(rect);
-	rect_count+=1;
-}
-
-function createRect() {
-	let x_pos = document.getElementById('x-pos').value;
-	let y_pos = document.getElementById('y-pos').value;
-
-	let rect = document.createElement('div');
-	rect.id = rect_count;
-	rect.className = 'rect';
-	rect.style.top = y_pos + 'px';
-	rect.style.left = x_pos + 'px';
-
-	document.body.appendChild(rect);
-	rect_count+=1;
-}
-
 function drawLine(source, target) {
 	let source_styles = window.getComputedStyle(source);
 	let source_height = parseInt(source_styles.height);
@@ -85,7 +39,3 @@ function drawLine(source, target) {
 
 	document.body.appendChild(line);
 }
-
-// createRectStatic(200, 200);
-// createRectStatic(900, 900);
-// callDrawLine();

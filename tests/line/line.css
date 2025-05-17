@@ -21,3 +21,8 @@ body {
 	width: 100px; height: 100px;
 	background-color: red;
 }
+
+.line {
+	position: absolute;
+	z-index: -1;
+}
