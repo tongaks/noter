@@ -1,7 +1,10 @@
 <h1>This is a whiteboard/can-be note taking webpage</h1>
 <h2>Work in progress, very buggy</h2>
-
+<figure>
 <img src="demo/noter.gif" alt="demo noter gif">
+<figcaption style="font-style: italics;">Old design. Not updated yet.</figcaption>
+</figure>
+
 <h2>How to use</h2>
 <ul>
 	<li>To add a text box: click-hold the right mouse button and click the "text" with the left mouse </li>
