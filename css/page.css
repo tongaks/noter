@@ -32,13 +32,12 @@
 }
 
 .rotate-cntrl {
+	position: absolute;
+
 	padding: 10px;
 	border-radius: 50%;
 	height: fit-content;
 	background-color: black;
-
-	position: absolute;
-
 	cursor: move;
 	display: none;
 }

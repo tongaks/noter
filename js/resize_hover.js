@@ -3,7 +3,7 @@ function resizeHover(element) {
 
 	function getDirection(event) {
 		const rect = element.getBoundingClientRect();
-		const threshold = 10;
+		const threshold = 15;
 		let direction = null;
 
 		const mouseX = event.clientX;
@@ -66,14 +66,19 @@ function resizeDrag(element, direction) {
         let top = parseInt(elementStyles.top);
         let left = parseInt(elementStyles.left);
 
+        let rotate_cntrl = element.children[1];
+        let rc_top = parseInt(window.getComputedStyle(rotate_cntrl).top);
+
         switch (direction) {
             case 'top':
                 element.style.top = (top + e.movementY) + 'px';
                 element.style.height = (height - e.movementY) + 'px';
+                rotate_cntrl.style.top = (rc_top - e.movementY) + 'px';
                 break;
             case 'bottom':
                 element.style.height = (height + e.movementY) + 'px';
                 element.style.top = top + 'px';
+                rotate_cntrl.style.top = (rc_top + e.movementY) + 'px';
                 break;
             case 'left':
                 element.style.width = (width - e.movementX) + 'px';

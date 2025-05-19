@@ -8,7 +8,7 @@ body {
 	height: 100vh;
 }
 
-.form {
+/*.form {
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
@@ -20,7 +20,7 @@ body {
 	position: absolute;
 	width: 100px; height: 100px;
 	background-color: red;
-}
+}*/
 
 .line {
 	position: absolute;

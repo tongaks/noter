@@ -2,6 +2,11 @@ function resizeDrag(element, direction) {
     function resize(e) {
         e.stopPropagation();
         let elementStyles = window.getComputedStyle(element);
+
+        let rotate_cntrl = element.children[1];
+        let rc_top = parseInt(window.getComputedStyle(rotate_cntrl).top);
+        console.log('rc-top: ' + rc_top);
+
         let height = parseInt(elementStyles.height);
         let width = parseInt(elementStyles.width);
         let top = parseInt(elementStyles.top);
@@ -14,6 +19,7 @@ function resizeDrag(element, direction) {
                 break;
             case 'bottom':
                 element.style.height = (height + e.movementY) + 'px';
+                rotate_cntrl.style.top = (rc_top + e.movementY) + 'px';
                 break;
             case 'left':
                 element.style.width = (width - e.movementX) + 'px';

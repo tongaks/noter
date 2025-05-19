@@ -1,5 +1,7 @@
 let rect_count = 0;
 
+document.body.addEventListener('contextmenu', addElementDialog);
+
 function restart() {
 	let rects = document.getElementsByClassName('rect');
 	document.getElementById('line').remove();
@@ -94,6 +96,6 @@ function drawLine(source, target) {
 	document.body.appendChild(line);
 }
 
-createRectStatic(200, 200);
-createRectStatic(600, 600);
-callDrawLine();
+// createRectStatic(200, 200);
+// createRectStatic(600, 600);
+// callDrawLine();
